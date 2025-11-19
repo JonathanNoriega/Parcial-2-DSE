@@ -1,0 +1,9 @@
+<div *ngIf="actor" class="card" style="width: 22rem;">
+  <img [src]="actor.img_url" class="card-img-top" alt="{{ actor.name }}">
+
+  <div class="card-body">
+    <h5 class="card-title">{{ actor.name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Año de nacimiento: {{ actor.born_year }}</h6>
+    <p class="card-text">{{ actor.description }}</p>
+  </div>
+</div>

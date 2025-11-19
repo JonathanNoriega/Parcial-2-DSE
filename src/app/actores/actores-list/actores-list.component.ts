@@ -12,7 +12,7 @@ export class ActoresListComponent implements OnInit {
 
   actores: Actor[] = [];
   edadPromedio: number = 0;
-
+  selectedActor?: Actor;
   constructor(private actoresService: ActoresService) { }
 
   ngOnInit() {
@@ -40,4 +40,8 @@ export class ActoresListComponent implements OnInit {
 
     this.edadPromedio = Math.round(promedio);
   }
+
+  onSelect(actor: Actor) {
+  this.selectedActor = actor;
+}
 }
