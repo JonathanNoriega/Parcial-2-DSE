@@ -3,14 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ActoresModule } from './actores/actores.module';
 @NgModule({
   declarations: [
     App
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ActoresModule,
+    HttpClientModule,
+
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

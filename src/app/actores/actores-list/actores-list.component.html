@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Premio</th>
+      <th scope="col">Año nacimiento</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let actor of actores">
+    <td>{{ actor.id }}</td>
+    <td>{{ actor.name }}</td>
+    <td>{{ actor.main_award }}</td>
+    <td>{{ actor.born_year }}</td>
+  </tr>
+</tbody>
+</table>
