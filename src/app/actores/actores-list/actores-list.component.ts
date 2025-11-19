@@ -11,6 +11,7 @@ import { ActoresService } from '../actores.service';
 export class ActoresListComponent implements OnInit {
 
   actores: Actor[] = [];
+  edadPromedio: number = 0;
 
   constructor(private actoresService: ActoresService) { }
 
@@ -22,8 +23,21 @@ export class ActoresListComponent implements OnInit {
     this.actoresService.listActores().subscribe({
       next: (data) => {
         this.actores = data;
-        console.log(data);
+        this.calcularEdadPromedio();
       },
+      error: (err) => {
+        console.error("HTTP ERROR:", err);
+      }
     });
+  }
+
+  calcularEdadPromedio() {
+    const CURRENT_YEAR = 2025;
+
+    const edades = this.actores.map(a => CURRENT_YEAR - a.born_year);
+
+    const promedio = edades.reduce((sum, edad) => sum + edad, 0) / edades.length;
+
+    this.edadPromedio = Math.round(promedio);
   }
 }
